@@ -1,7 +1,7 @@
 # PFSwChO
-docker build -t pfswcho:dev .
+docker build -t pfswcho .
 
-docker run -p 8080:80 pfswcho:dev
+docker run -p 8080:80 pfswcho
 
 docker ps -a
 

@@ -11,7 +11,8 @@ docker history pfswcho:dev
 
 Logi aplikacji
 
-![logs_aplication](https://github.com/ggrzesiek470/PFSwChO/assets/72609123/480b3388-0ece-4a93-bc47-c2d018597a7c)
+![logs_aplication](https://github.com/ggrzesiek470/PFSwChO/assets/72609123/674e5b00-209b-4657-92f4-52b261021ed3)
+
 
 Logi z docker
 

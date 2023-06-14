@@ -17,7 +17,7 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 
 # Kopiujemy plik projektu do katalogu /src/PFSwChO/
-COPY "PFSwChO/PFSwChO.csproj", "PFSwChO/"
+COPY "PFSwChO/PFSwChO.csproj" "PFSwChO/"
 
 # Przywracamy zale¿noœci aplikacji
 RUN dotnet restore "PFSwChO/PFSwChO.csproj"

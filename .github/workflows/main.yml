@@ -32,13 +32,11 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./dockerfile
+          file: ./PFSwChO/dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,mode=max,dest=/tmp/.buildx-cache-new
           tags: |
-            spg51/lab:ghlab10extended
+            ggrzesiek470/PFSwChO:dev
 
       - name: Move cache
         run: |

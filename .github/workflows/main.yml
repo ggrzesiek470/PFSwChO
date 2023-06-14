@@ -38,13 +38,23 @@ jobs:
           tags: |
             ggrzesiek470/pfswcho:dev_amd64
 
-#      - name: Build and push Docker image (linux/arm64/v8)
-#        uses: docker/build-push-action@v3
-#        with:
-#          context: ./
-#          file: ./PFSwChO/Dockerfile
-#          platforms: linux/arm64/v8
-#          push: true
-#          tags: |
-#            ggrzesiek470/pfswcho:dev_arm64
+      - name: Build and push Docker image (linux/arm64/v8)
+        uses: docker/build-push-action@v3
+        with:
+          context: ./
+          file: ./PFSwChO/Dockerfile
+          platforms: linux/arm64/v8
+          push: true
+          tags: |
+            ggrzesiek470/pfswcho:dev_arm64
+            
+      - name: Build and push Docker image (linux/arm64/v8)
+        uses: docker/build-push-action@v3
+        with:
+          context: ./
+          file: ./PFSwChO/Dockerfile
+          platforms: linux/arm64/v8
+          push: true
+          tags: |
+            ggrzesiek470/pfswcho:dev_arm64
           

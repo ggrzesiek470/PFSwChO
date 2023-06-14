@@ -48,20 +48,3 @@ ENTRYPOINT ["dotnet", "PFSwChO.dll"]
 # Definiujemy polecenie Health Check, które sprawdza zdrowie aplikacji
 HEALTHCHECK --interval=10s --timeout=3s --retries=3 \
   CMD curl --fail http://localhost:80/health || exit 1
-
-# Dodajemy QEMU
-# Instalujemy QEMU dla architektury Linux/arm64/v8
-RUN apt-get update && apt-get install -y qemu-user-static
-COPY qemu-aarch64-static /usr/bin
-
-# Budujemy obraz dla architektury Linux/amd64
-FROM scratch AS qemu
-COPY qemu-x86_64-static /usr/bin
-
-# Etap dla architektury Linux/arm64/v8
-FROM final AS arm64v8
-COPY --from=qemu /usr/bin/qemu-aarch64-static /usr/bin
-
-# Etap dla architektury Linux/amd64
-FROM final AS amd64
-COPY --from=qemu /usr/bin/qemu-x86_64-static /usr/bin

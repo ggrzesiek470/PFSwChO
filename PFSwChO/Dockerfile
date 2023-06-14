@@ -25,11 +25,11 @@ RUN dotnet restore "PFSwChO/PFSwChO.csproj"
 # Kopiujemy resztê kodu Ÿród³owego aplikacji
 COPY . .
 
-# Ustawiamy katalog roboczy na /src/PFSwChO
-WORKDIR "/src/PFSwChO"
+# Ustawiamy katalog roboczy na /src
+WORKDIR /src
 
 # Kompilujemy aplikacjê w trybie Release i zapisujemy wyniki w katalogu /app/build
-RUN dotnet build "PFSwChO.csproj" -c Release -o /app/build
+RUN dotnet build "PFSwChO/PFSwChO.csproj" -c Release -o /app/build
 
 # Etap publikacji - z obrazu build kopiujemy skompilowane pliki do /app/publish
 FROM build AS publish

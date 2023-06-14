@@ -28,19 +28,23 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push Docker image
+      - name: Build and push Docker image (linux/amd64)
         uses: docker/build-push-action@v3
         with:
           context: ./
           file: ./PFSwChO/Dockerfile
-          platforms: linux/amd64,linux/arm64/v8
+          platforms: linux/amd64
           push: true
           tags: |
-            ggrzesiek470/pfswcho:dev
+            ggrzesiek470/pfswcho:dev_amd64
 
-      - name: Move cache
-        run: |
-          rm -rf /tmp/.buildx-cache
-          mv /tmp/.buildx-cache-new /tmp/.buildx-cache
-          
+      - name: Build and push Docker image (linux/arm64/v8)
+        uses: docker/build-push-action@v3
+        with:
+          context: ./
+          file: ./PFSwChO/Dockerfile
+          platforms: linux/arm64/v8
+          push: true
+          tags: |
+            ggrzesiek470/pfswcho:dev_arm64
           

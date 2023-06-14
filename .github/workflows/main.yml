@@ -43,7 +43,7 @@ jobs:
         with:
           context: ./
           file: ./PFSwChO/Dockerfile
-          platforms: linux/arm64/v8
+          platforms: linux/arm64/v7
           push: true
           tags: |
             ggrzesiek470/pfswcho:dev_arm64

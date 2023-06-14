@@ -31,6 +31,7 @@ WORKDIR /src
 # Kompilujemy aplikacjê w trybie Release i zapisujemy wyniki w katalogu /app/build
 RUN dotnet build "PFSwChO/PFSwChO.csproj" -c Release -o /app/build
 
+RUN dotnet restore "PFSwChO/PFSwChO.csproj"
 # Etap publikacji - z obrazu build kopiujemy skompilowane pliki do /app/publish
 FROM build AS publish
 RUN dotnet publish "PFSwChO/PFSwChO.csproj" -c Release -o /app/publish #/p:UseAppHost=false
